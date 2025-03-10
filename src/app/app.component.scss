@@ -1,0 +1,68 @@
+.background-img{
+    margin: 0;
+    img {
+        width: 100%;
+    }
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10; // Garante que fique sobre os outros elementos
+    top: 50px; // Ajusta a posição verticalmente
+    left: 50%;
+    transform: translateX(-50%); // Centraliza horizontalmente
+    text-align: center;
+    width: 100%;
+
+    .input-button{
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        input{
+            width: 100%;
+            max-width: 450px;
+            height: 40px;
+            border: 0.5px solid hsl(0, 0%, 59%);
+            border-radius: 10px 0px 0px 10px;
+            padding-left: 20px;
+        }
+
+        .search-button{
+            border: 0.5px solid transparent;
+            border-radius: 2px 10px 10px 2px;
+            background-color: hsl(0, 0%, 17%);
+
+            .svg{
+                width: 37px;
+            }
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    .infos-ip-results{
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        padding: 12px;
+        border-radius: 12px;
+
+        .result-column{
+            padding: 8px;
+        }
+    }
+}
+
+.map{
+    margin: 0;
+    position: relative; // Garante que o mapa fique no fluxo do layout
+    z-index: 1; // Mantém o mapa abaixo das informações
+}
