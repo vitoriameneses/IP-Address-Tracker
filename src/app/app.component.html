@@ -1,36 +1,40 @@
-<div class="background-img">
-  <img src="../assets/pattern-bg-desktop.png" alt="">
-</div>
-<div class="infos">
-    <h2>IP Address Tracker</h2>
+<div class="container">
+  <div class="background-img">
+    <img src="../assets/pattern-bg-desktop.png" alt="">
+  </div>
+
+  <div class="infos">
+    <h1>IP Address Tracker</h1>
     <div class="input-button">
-      <input type="text" placeholder="Search for any IP address or domain">
-      <button class="search-button">
+      <input [(ngModel)]="ip_input" type="text" placeholder="Search for any IP address or domain">
+      <button class="search-button" (click)="trackIP(ip_input)">
         <div class="svg">
-          <svg viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512"><path d="M160 115.4 180.7 96 352 256 180.7 416 160 396.7 310.5 256z" fill="#ffffff" class="fill-000000"></path></svg>
+           <img src="../assets/icon-arrow.svg" alt="">
         </div>
       </button>
     </div> 
 
     <div class="infos-ip-results">
       <div class="result-column">
-        <h3 class="h3-title">ip address</h3>
-        <h2 class="h2-result">ip resultado</h2>
+        <h4 class="h4-title">ip address</h4>
+        <h2 class="h2-result">{{ this.ip_address }}</h2>
       </div>
       <div class="result-column">
-        <h3 class="h3-title">location</h3>
-        <h2 class="h2-result">location resultado</h2>
+        <h4 class="h4-title">location</h4>
+        <h2 class="h2-result">{{ this.location }}</h2>
       </div>
       <div class="result-column">
-        <h3 class="h3-title">timezone</h3>
-        <h2 class="h2-result">timezone resultado</h2>
+        <h4 class="h4-title">timezone</h4>
+        <h2 class="h2-result">{{ this.timezone }}</h2>
       </div>
       <div class="result-column">
-        <h3 class="h3-title">isp</h3>
-        <h2 class="h2-result">isp resultado</h2>
+        <h4 class="h4-title">isp</h4>
+        <h2 class="h2-result">{{ this.isp }}</h2>
       </div>
     </div>
-</div>
-<div class="map">
-  <app-map></app-map>
+  </div>
+
+  <div class="map">
+    <app-map></app-map>
+  </div>
 </div>

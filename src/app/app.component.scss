@@ -1,20 +1,47 @@
-.background-img{
+h1{
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+h2{
+    font-weight: 500;
     margin: 0;
+    padding: 10px;
+}
+
+h4{
+    font-weight: 400;
+}
+
+h4{
+    color: hsl(0, 0%, 59%);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0;
+}
+
+.background-img{
+    margin-bottom: 0;
+    height: 300px;
+
     img {
         width: 100%;
+        height: 100%;
     }
 }
 
 .infos{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     position: absolute;
-    z-index: 10; // Garante que fique sobre os outros elementos
-    top: 50px; // Ajusta a posição verticalmente
+    z-index: 10;
+    top: 50px;
     left: 50%;
-    transform: translateX(-50%); // Centraliza horizontalmente
+    transform: translateX(-50%);
     text-align: center;
     width: 100%;
 
@@ -23,6 +50,7 @@
         display: flex;
         flex-direction: row;
         align-items: start;
+
         input{
             width: 100%;
             max-width: 450px;
@@ -39,6 +67,14 @@
 
             .svg{
                 width: 37px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 12px;
+                }
             }
 
             &:hover{
@@ -48,12 +84,14 @@
     }
 
     .infos-ip-results{
+        gap: 40px;
         background-color: white;
         display: flex;
         flex-direction: row;
         margin-top: 20px;
         padding: 12px;
         border-radius: 12px;
+        box-shadow: 10px 10px 61px -7px rgb(68, 68, 68);
 
         .result-column{
             padding: 8px;
@@ -62,7 +100,28 @@
 }
 
 .map{
-    margin: 0;
-    position: relative; // Garante que o mapa fique no fluxo do layout
-    z-index: 1; // Mantém o mapa abaixo das informações
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 600px){
+    .infos{
+
+        .input-button{
+            width: 90%;
+        }
+        .infos-ip-results{
+            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            height: 350px;
+            
+
+            .result-column{
+                padding: 0;
+            }
+        }
+    }
 }
