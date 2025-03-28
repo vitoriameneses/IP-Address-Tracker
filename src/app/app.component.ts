@@ -18,6 +18,9 @@ export class AppComponent {
   timezone: string = '';
   isp: string = '';
 
+  lat: number = 0;
+  lng: number = 0;
+
   title = 'ip-address-tracker';
 
   constructor(
@@ -26,10 +29,15 @@ export class AppComponent {
 
   trackIP(ip: string) {
     this.ipService.getIpAddress(ip).subscribe((data) => {
+      console.log(data);
       this.ip_address = data.ip;
       this.location = `${data.location.city}, ${data.location.region}`;
       this.timezone = data.location.timezone;
       this.isp = data.isp;
+
+      // location infos
+      this.lat = data.location.lat;
+      this.lng = data.location.lng;
     });
   }
 }

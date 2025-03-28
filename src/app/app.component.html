@@ -15,19 +15,19 @@
     </div> 
 
     <div class="infos-ip-results">
-      <div class="result-column">
+      <div class="result-column" id="one">
         <h4 class="h4-title">ip address</h4>
         <h2 class="h2-result">{{ this.ip_address }}</h2>
       </div>
-      <div class="result-column">
+      <div class="result-column" id="two">
         <h4 class="h4-title">location</h4>
         <h2 class="h2-result">{{ this.location }}</h2>
       </div>
-      <div class="result-column">
+      <div class="result-column" id="three">
         <h4 class="h4-title">timezone</h4>
         <h2 class="h2-result">{{ this.timezone }}</h2>
       </div>
-      <div class="result-column">
+      <div class="result-column" id="four">
         <h4 class="h4-title">isp</h4>
         <h2 class="h2-result">{{ this.isp }}</h2>
       </div>
@@ -35,6 +35,6 @@
   </div>
 
   <div class="map">
-    <app-map></app-map>
+    <app-map [lat]="lat" [lng]="lng"></app-map>
   </div>
 </div>
