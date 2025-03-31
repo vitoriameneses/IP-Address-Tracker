@@ -12,6 +12,7 @@ export class IpService {
   constructor(private http: HttpClient) { }
 
   getIpAddress(ip: string): Observable<any> {
+    console.log(`url enviada: /api/get-ip-info?ip=${ip}`);
     return this.http.get(`/api/get-ip-info?ip=${ip}`);
   }
 }

@@ -1,6 +1,10 @@
-export default async function handler(req: any, res: any) {
+module.exports = async function (req: any, res: any) {
     const ip = req.query.ip;
     const apiKey = process.env["IP_API_KEY"];
+  
+    if (!ip) {
+      return res.status(400).json({ error: 'IP address is required' });
+    }
   
     if (!apiKey) {
       return res.status(500).json({ error: 'API key not configured' });
@@ -11,8 +15,9 @@ export default async function handler(req: any, res: any) {
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
-      res.status(200).json(data);
-    } catch (err) {
-      res.status(500).json({ error: 'Failed to fetch IP data' });
+      return res.status(200).json(data);
+    } catch (error) {
+      return res.status(500).json({ error: 'Failed to fetch IP data', details: (error as Error).message });
     }
-}  
+  };
+  
