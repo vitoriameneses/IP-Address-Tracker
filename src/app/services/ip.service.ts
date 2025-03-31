@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.local';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IpService {
-  private apiUrl = 'https://geo.ipify.org/api/v2/country,city?apiKey=at_r2m0XZUnPDFVZm8X5QSPQvSkkmep7&ipAddress=';
+  private baseUrl = 'https://geo.ipify.org/api/v2/country,city';
 
-  //'https://geo.ipify.org/api/v2/country,city?apiKey=at_r2m0XZUnPDFVZm8X5QSPQvSkkmep7&ipAddress=8.8.8.8';
 
   constructor(private http: HttpClient) { }
 
   getIpAddress(ip: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}${ip}`);
+    const url = `${this.baseUrl}?apiKey=${environment.ipApiKey}&ipAddress=${ip}`;
+    return this.http.get(url);
   }
 }
